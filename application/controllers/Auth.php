@@ -38,8 +38,22 @@ class Auth extends CI_Controller
                 ];
                 $this->session->set_userdata($data);
                 if ($user['role_id'] == 1) {
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Selamat Datang ' . $user['name'] . ' di Mail Information System - Bank Unisritama!</strong> Please check in Mail Type below.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button></div>'
+                    );
                     redirect('admin');
                 } else {
+                    $this->session->set_flashdata(
+                        'message',
+                        '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Selamat Datang ' . $user['name'] . ' di Mail Information System - Bank Unisritama!</strong> Please check in Mail Type below.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button></div>'
+                    );
                     redirect('user');
                 }
             } else {

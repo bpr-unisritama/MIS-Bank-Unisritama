@@ -17,6 +17,12 @@
             Admin
         </div>
 
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('admin'); ?>">
+                <i class="fas fa-fw fa-chart-bar"></i>
+                <span>Dashboard</span></a>
+        </li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#masterData" aria-expanded="true" aria-controls="masterData">
@@ -43,6 +49,14 @@
         End-User
     </div>
 
+    <?php if ($user['role_id'] == 2) : ?>
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('user'); ?>">
+                <i class="fas fa-fw fa-chart-bar"></i>
+                <span>Dashboard</span></a>
+        </li>
+    <?php endif; ?>
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="#">

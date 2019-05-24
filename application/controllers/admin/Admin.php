@@ -13,7 +13,7 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'Admin MIS - Unisritama';
+        $data['title'] = 'Dashborad - MIS';
         $data['heading'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
         $this->load->view('templates/home_header', $data);
@@ -88,8 +88,8 @@ class Admin extends CI_Controller
 
     public function type()
     {
-        $data['title'] = 'Mail Type - MIS';
-        $data['heading'] = 'Mail Type';
+        $data['title'] = 'Jenis Surat';
+        $data['heading'] = 'Jenis Surat';
         $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
         $data['data'] = $this->management->get_type()->result();
 
@@ -102,8 +102,8 @@ class Admin extends CI_Controller
     {
         $this->form_validation->set_rules('type', 'Type', 'required|trim');
         if ($this->form_validation->run() == false) {
-            $data['title'] = 'Add Mail Type - MIS';
-            $data['heading'] = 'Add Mail Type';
+            $data['title'] = 'Add Jenis Surat - MIS';
+            $data['heading'] = 'Add Jenis Surat';
             $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
             $data['data'] = 'test';
             $this->load->view('templates/home_header', $data);
