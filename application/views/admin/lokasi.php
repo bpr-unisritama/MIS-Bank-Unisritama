@@ -20,7 +20,41 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive-md">
-                        
+                        <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                            <thead class="table table-dark">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Lokasi</th>
+                                    <th>Ruangan</th>
+                                    <th>Rak</th>
+                                    <th>Folder</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tfoot class="table table-dark">
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Lokasi</th>
+                                    <th>Ruangan</th>
+                                    <th>Rak</th>
+                                    <th>Folder</th>
+                                    <th>Action</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php $no = 1;
+                                foreach ($data as $row) : ?>
+                                    <tr>
+                                        <th><?= $no++; ?></th>
+                                        <th><?= $row->lokasi; ?></th>
+                                        <th><?= $row->ruangan; ?></th>
+                                        <th><?= $row->rak; ?></th>
+                                        <th><?= $row->folder; ?></th>
+                                        <th><a href="<?= $row->id_lokasi; ?>">Hapus</a></th>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
 
                     </div>
                 </div>

@@ -21,7 +21,7 @@ class Lokasi extends CI_Controller
         $data['title'] = 'LOKASI PENYIMPANAN';
         $data['heading'] = 'Lokasi Penyimpanan';
         $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
-        $data['data'] = $this->management->get_loc()->result_array();
+        $data['data'] = $this->management->get_loc()->result();
         $this->load->view('templates/home_header', $data);
         $this->load->view('admin/lokasi');
         $this->load->view('templates/home_footer', $data);

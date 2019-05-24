@@ -20,7 +20,7 @@ class In_mail extends CI_Controller
         $data['title'] = 'SURAT MASUK';
         $data['heading'] = 'Surat Masuk';
         $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
-        $data['data'] = $this->mail->get_all()->result_array();
+        $data['data'] = $this->mail->get_all()->result();
         $this->load->view('templates/home_header', $data);
         $this->load->view('admin/in_mail');
         $this->load->view('templates/home_footer', $data);

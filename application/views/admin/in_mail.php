@@ -51,7 +51,11 @@
                                 <th><?= htmlspecialchars($row->asal); ?></th>
                                 <th><?= htmlspecialchars($row->tujuan); ?></th>
                                 <th><?= htmlspecialchars($row->perihal); ?></th>
-                                <th><a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-danger float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Hapus</a></th>
+                                <th>
+                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-danger float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Hapus</a>
+                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-primary float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Edit</a>
+                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-primary float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Detail</a>
+                                </th>
                             </tr>
                             <div id="hapus<?= $row->id_suratm; ?>" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
