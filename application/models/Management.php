@@ -25,4 +25,10 @@ class Management extends CI_Model
         $this->db->from('jenis');
         return $this->db->get();
     }
+
+    function get_loc()
+    {
+        return $this->db->get('lokasi');
+    }
+
 }

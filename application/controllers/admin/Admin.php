@@ -9,11 +9,24 @@ class Admin extends CI_Controller
         parent::__construct();
         $this->load->model('management');
         $this->load->library('form_validation');
+
+        if (empty($this->session->userdata('name'))) {
+            redirect(base_url(), 'refresh');
+        } elseif ($this->session->userdata('role_id') == 2) {
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>You must be an administrator to view the admin page!!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>'
+            );
+            redirect(base_url('user'), 'refresh');
+        }
     }
 
     public function index()
     {
-        $data['title'] = 'Dashborad - MIS';
+        $data['title'] = 'DASHBOARD - MIS';
         $data['heading'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
         $this->load->view('templates/home_header', $data);
@@ -54,7 +67,6 @@ class Admin extends CI_Controller
             $data['title'] = 'Add Kategori Surat - MIS';
             $data['heading'] = 'Add Kategori Surat';
             $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
-            $data['data'] = 'test';
             $this->load->view('templates/home_header', $data);
             $this->load->view('admin/add_kategori', $data);
             $this->load->view('templates/home_footer', $data);
@@ -66,7 +78,7 @@ class Admin extends CI_Controller
 
             $this->db->insert('kategori', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success add new Category</div>');
-            redirect('admin/kategori');
+            redirect('admin/kategori', 'refresh');
         }
     }
 
@@ -74,7 +86,13 @@ class Admin extends CI_Controller
     {
         $this->db->where('id_kategori', $id_kategori);
         $this->db->delete('kategori');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success delete Kategori Surat tsb!</div>');
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Hapus Kategori Surat <strong>Berhasil!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>'
+        );
         redirect('admin/kategori');
     }
 
@@ -82,7 +100,13 @@ class Admin extends CI_Controller
     {
         $this->db->where('id_type', $id_type);
         $this->db->delete('jenis');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success delete Jenis Surat tsb!</div>');
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Berhasil!</strong> Hapus Jenis Surat.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button></div>'
+        );
         redirect('admin/type');
     }
 
@@ -105,7 +129,6 @@ class Admin extends CI_Controller
             $data['title'] = 'Add Jenis Surat - MIS';
             $data['heading'] = 'Add Jenis Surat';
             $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
-            $data['data'] = 'test';
             $this->load->view('templates/home_header', $data);
             $this->load->view('admin/add_type', $data);
             $this->load->view('templates/home_footer', $data);
@@ -115,8 +138,14 @@ class Admin extends CI_Controller
             ];
 
             $this->db->insert('jenis', $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Success add new Type</div>');
-            redirect('admin/type');
+            $this->session->set_flashdata(
+                'message',
+                '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Berhasil!</strong> Tambah Jenis Surat.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button></div>'
+            );
+            redirect(base_url('admin/type'), 'refresh');
         }
     }
 }

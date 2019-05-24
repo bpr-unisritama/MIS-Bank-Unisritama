@@ -34,6 +34,7 @@
                     <h6 class="collapse-header">Components</h6>
                     <a class="collapse-item" href="<?= base_url('admin/kategori') ?>">Kategori Surat</a>
                     <a class="collapse-item" href="<?= base_url('admin/type') ?>">Jenis Surat</a>
+                    <a class="collapse-item" href="<?= base_url('admin/lokasi') ?>">Lokasi Penyimpanan</a>
                     <a class="collapse-item" href="<?= base_url('admin/users') ?>">Management User</a>
                 </div>
             </div>
@@ -59,9 +60,13 @@
     <?php endif; ?>
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-envelope-open"></i>
-            <span>Surat Masuk</span></a>
+        <?php if ($user['role_id'] == 1) : ?>
+            <a class="nav-link" href="<?= base_url('admin/in_mail'); ?>">
+            <?php else : ?>
+                <a class="nav-link" href="<?= base_url('user/in_mail'); ?>">
+                <?php endif; ?>
+                <i class="fas fa-fw fa-envelope-open"></i>
+                <span>Surat Masuk</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
