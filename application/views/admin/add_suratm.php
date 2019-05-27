@@ -12,8 +12,10 @@
                 <div class="card-header py-3">
                     <div class="row">
                         <div class="col-8">
-                            <!-- <h6 class="mx-auto font-weight-bold text-primary">List User</h6> -->
                             <h4 class="font-weight-bold text-primary">Surat Masuk</h4>
+                        </div>
+                        <div class="col-4">
+                            <a href="<?= base_url('admin/in_mail'); ?>" class="btn btn-success btn-user float-right">Kembali</a>
                         </div>
                     </div>
                 </div>
@@ -23,12 +25,22 @@
                             <form class="user" method="post" action="<?= base_url('admin/new_mail'); ?>" enctype="multipart/form-data">
                                 <div class="form-group col-9 mx-auto">
                                     <label>Tanggal Terima</label>
-                                    <input type="text" class="form-control date-picker" name="tgl_terima" id="tgl_terima" placeholder="Enter Tanggal Terima" value="<?= set_value('tgl_terima'); ?>" data-date-format="mm/dd/yyyy">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control date-picker" name="tgl_terima" id="tgl_terima" placeholder="Enter Tanggal Terima" value="<?= set_value('tgl_terima'); ?>" data-date-format="dd/mm/yyyy">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
+                                        </div>
+                                    </div>
                                     <?php echo form_error('tgl_terima', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group col-9 mx-auto">
                                     <label>Tanggal Surat</label>
-                                    <input type="text" class="form-control date-picker" name="tgl_surat" id="tgl_surat" placeholder="Enter Tangal Surat" value="<?= set_value('tgl_surat'); ?>">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control date-picker" name="tgl_surat" id="tgl_surat" placeholder="Enter Tangal Surat" value="<?= set_value('tgl_surat');?>" data-date-format="dd/mm/yyyy">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
+                                            </div>
+                                    </div>
                                     <?php echo form_error('tgl_surat', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <div class="form-group col-9 mx-auto">
@@ -111,5 +123,6 @@
 <script type="text/javascript">
     $('.date-picker').datepicker({
         autoclose: true,
+        todayHighlight: true
     });
 </script>

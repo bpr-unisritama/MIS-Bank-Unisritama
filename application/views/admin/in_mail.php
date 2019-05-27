@@ -53,8 +53,8 @@
                                 <th><?= htmlspecialchars($row->perihal); ?></th>
                                 <th>
                                     <a href="#" class="btn btn-sm btn-danger btn-user float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Hapus</a>
-                                    <a href="#" class="btn btn-sm btn-primary btn-user  float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Edit</a>
-                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-success btn-user float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Detail</a>
+                                    <a href="#" class="btn btn-sm btn-primary btn-user  float-center" data-target="#<?php echo $row->id_suratm; ?>" data-toggle="modal">Edit</a>
+                                    <a href="#" class="btn btn-sm btn-success btn-user float-center" data-target="#<?php echo $row->id_suratm; ?>" data-toggle="modal">Detail</a>
                                 </th>
                             </tr>
                             <div id="hapus<?= $row->id_suratm; ?>" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
