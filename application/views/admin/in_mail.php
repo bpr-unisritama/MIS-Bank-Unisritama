@@ -13,7 +13,7 @@
                     <!-- <h6 class="mx-auto font-weight-bold text-primary">List User</h6> -->
                     <h4 class="font-weight-bold text-primary">List Surat Masuk</h4>
                 </div>
-                <div class="col-4"><a href="<?= base_url('admin/new_mail'); ?>" class="btn btn-facebook float-right">Registrasi Surat Masuk</a></div>
+                <div class="col-4"><a href="<?= base_url('admin/new_mail'); ?>" class="btn btn-info btn-user float-right">Registrasi Surat Masuk</a></div>
             </div>
         </div>
         <div class="card-body">
@@ -52,9 +52,9 @@
                                 <th><?= htmlspecialchars($row->tujuan); ?></th>
                                 <th><?= htmlspecialchars($row->perihal); ?></th>
                                 <th>
-                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-danger float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Hapus</a>
-                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-primary float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Edit</a>
-                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-primary float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Detail</a>
+                                    <a href="#" class="btn btn-sm btn-danger btn-user float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Hapus</a>
+                                    <a href="#" class="btn btn-sm btn-primary btn-user  float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Edit</a>
+                                    <a href="<?php echo $row->id_suratm; ?>" class="btn btn-sm btn-success btn-user float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Detail</a>
                                 </th>
                             </tr>
                             <div id="hapus<?= $row->id_suratm; ?>" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

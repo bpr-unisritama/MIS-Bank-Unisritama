@@ -12,6 +12,9 @@
 <title><?= $title; ?></title>
 
 <link rel="icon" href="<?= base_url('assets/img/bpr.png'); ?>" type="image/x-icon" />
+<link href="<?php echo base_url(); ?>assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
 <!-- Custom fonts for this template-->
 <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
