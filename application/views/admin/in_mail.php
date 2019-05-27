@@ -69,7 +69,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <!-- <button type="button" class="btn btn-primary">Yes</button> -->
-                                            <a href="<?= base_url('admin/delete_kategori/' . $row->id_suratm) ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete User">Hapus</a>
+                                            <a href="<?= base_url('admin/delete_suratm/' . $row->id_suratm) ?>" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete User">Hapus</a>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="tooltip" data-placement="top" title="Kembali">Tidak</button>
                                         </div>
                                     </div>

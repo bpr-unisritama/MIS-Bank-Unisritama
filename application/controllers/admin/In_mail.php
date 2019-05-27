@@ -92,12 +92,25 @@ class In_mail extends CI_Controller
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Registrasi SUrat Masuk Berhasil!</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button></div>'
+                <strong>Registrasi Surat Masuk Berhasil!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button></div>'
             );
             redirect('admin/in_mail', 'refresh');
         }
+    }
+
+    public function delete_suratm($id_suratm)
+    {
+        $this->db->where('id_suratm', $id_suratm);
+        $this->db->delete('surat_masuk');
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Hapus Surat Masuk Berhasil!</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button></div>'
+        );
+        redirect('admin/in_mail', 'refresh');
     }
 }

@@ -62,7 +62,7 @@ $route['admin/delete_type/(:num)'] = 'admin/admin/delete_type/$1';
 $route['admin/delete_kategori/(:num)'] = 'admin/admin/delete_kategori/$1';
 $route['admin/in_mail'] = 'admin/in_mail';
 $route['admin/new_mail'] = 'admin/in_mail/new_mail';
-
+$route['admin/delete_suratm/(:num)'] = 'admin/in_mail/delete_suratm/$1';
 $route['user'] = 'user/user';
 $route['default_controller'] = 'auth';
 $route['404_override'] = '';
