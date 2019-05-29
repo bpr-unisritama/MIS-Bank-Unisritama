@@ -32,4 +32,11 @@ class Management extends CI_Model
         $this->db->from('lokasi');
         return $this->db->get();
     }
+
+    public function count_suratm()
+    {
+        $this->db->select('*');
+        $this->db->from('surat_masuk');
+        return $this->db->get();
+    }
 }

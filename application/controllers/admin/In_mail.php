@@ -71,6 +71,7 @@ class In_mail extends CI_Controller
             $this->load->view('admin/add_suratm', $data);
             $this->load->view('templates/home_footer', $data);
         } else {
+            // $this->mail->_reg();
             $data = [
                 'tgl_terima' => date('Y-m-d', strtotime($this->input->post('tgl_terima', true))),
                 'tgl_surat' => date('Y-m-d', strtotime($this->input->post('tgl_surat', true))),
@@ -102,15 +103,19 @@ class In_mail extends CI_Controller
 
     public function delete_suratm($id_suratm)
     {
-        $this->db->where('id_suratm', $id_suratm);
-        $this->db->delete('surat_masuk');
-        $this->session->set_flashdata(
-            'message',
-            '<div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Hapus Surat Masuk Berhasil!</strong>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span></button></div>'
-        );
+        $this->mail->delete($id_suratm);
         redirect('admin/in_mail', 'refresh');
+    }
+
+    public function detail($id_suratm)
+    {
+        $data['title'] = 'DETAIL SURAT';
+        $data['heading'] = 'Detail Surat Masuk';
+        $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
+        $data['data'] = $this->mail->get_detail($id_suratm)->result();
+        // var_dump($data['data']);
+        $this->load->view('templates/home_header', $data);
+        $this->load->view('admin/detail_suratm', $data);
+        $this->load->view('templates/home_footer', $data);
     }
 }

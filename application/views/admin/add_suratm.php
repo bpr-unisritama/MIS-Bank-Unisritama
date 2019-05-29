@@ -7,7 +7,7 @@
     <?= $this->session->flashdata('message'); ?>
     <!-- DataTales Example -->
     <div class="row">
-        <div class="col-lg-7 mx-auto">
+        <div class="col-lg-7">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <div class="row">
@@ -23,7 +23,7 @@
                     <div class="table-responsive">
                         <div class="col-12">
                             <form class="user" method="post" action="<?= base_url('admin/new_mail'); ?>" enctype="multipart/form-data">
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Tanggal Terima</label>
                                     <div class="input-group date">
                                         <input type="text" class="form-control date-picker" name="tgl_terima" id="tgl_terima" placeholder="Enter Tanggal Terima" value="<?= set_value('tgl_terima'); ?>" data-date-format="dd/mm/yyyy">
@@ -33,42 +33,42 @@
                                     </div>
                                     <?php echo form_error('tgl_terima', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Tanggal Surat</label>
                                     <div class="input-group date">
-                                        <input type="text" class="form-control date-picker" name="tgl_surat" id="tgl_surat" placeholder="Enter Tangal Surat" value="<?= set_value('tgl_surat');?>" data-date-format="dd/mm/yyyy">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
-                                            </div>
+                                        <input type="text" class="form-control date-picker" name="tgl_surat" id="tgl_surat" placeholder="Enter Tangal Surat" value="<?= set_value('tgl_surat'); ?>" data-date-format="dd/mm/yyyy">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
+                                        </div>
                                     </div>
                                     <?php echo form_error('tgl_surat', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Asal</label>
                                     <input type="text" class="form-control" name="asal" id="asal" placeholder="Enter Asal Pengirim" value="<?= set_value('asal'); ?>">
                                     <?php echo form_error('asal', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Tujuan</label>
                                     <input type="text" class="form-control" name="tujuan" id="tujuan" placeholder="Enter Tujuan" value="<?= set_value('tujuan'); ?>">
                                     <?php echo form_error('tujuan', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>No. Surat</label>
                                     <input type="text" class="form-control" name="no_surat" id="no_surat" placeholder="Enter Folder" value="<?= set_value('no_surat'); ?>">
                                     <?php echo form_error('no_surat', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Perihal</label>
                                     <input type="text" class="form-control" name="perihal" id="perihal" placeholder="Enter Perihal.." value="<?= set_value('perihal'); ?>">
                                     <?php echo form_error('perihal', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Jumlah Lampiran</label>
                                     <input type="text" class="form-control" name="lampiran" id="lampiran" placeholder="Enter Jumlah Lampiran.." value="<?= set_value('lampiran'); ?>">
                                     <?php echo form_error('lampiran', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
-                                <div class="col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Kategori Surat</label>
                                     <select class="form-control custom-select custom-select-md" id="kategori" name="kategori">
                                         <option value="" disabled diselected>--Pilih Kategori--</option>
@@ -77,16 +77,16 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Sifat Surat</label>
                                     <select class="form-control custom-select custom-select-md" id="jenis" name="jenis">
-                                        <option value="" disabled diselected>--Pilih Lokasi Simpan--</option>
+                                        <option value="" disabled diselected>--Pilih Sifat Surat--</option>
                                         <?php foreach ($jenis as $row) : ?>
                                             <option value="<?= $row->id_type; ?>"><?= $row->type; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Lokasi Penyimpanan</label>
                                     <select class="form-control custom-select custom-select-md" id="lokasi" name="lokasi">
                                         <option value="" disabled diselected>--Pilih Lokasi Simpan--</option>
@@ -95,16 +95,17 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                <div class="form-group col-9 mx-auto">
+                                <div class="form-group col-9">
                                     <label>Keterangan</label>
                                     <input type="text" class="form-control" name="ket" id="ket" placeholder="Enter Keterangan" value="<?= set_value('ket') ?>">
+                                    <?php echo form_error('ket', '<small class="text-danger pl-3">', '</small>'); ?>
                                 </div>
                                 <hr>
                                 <div class="form-group row justify-content-center">
-                                    <div class="col-3">
+                                    <div class="col mx-auto">
                                         <a href="<?= base_url('admin/in_mail'); ?>" class="btn btn-google btn-user btn-block">Cancel</a>
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col mx-auto">
                                         <button type="submit" class="btn btn-facebook btn-user btn-block">
                                             Save
                                         </button>

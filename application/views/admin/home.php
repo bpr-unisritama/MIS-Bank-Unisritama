@@ -11,12 +11,12 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                <h6><a href="#">Surat Masuk</a></h6>
+                                <h6><a href="<?= base_url('admin/in_mail') ?>">Surat Masuk</a></h6>
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">#</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $count; ?></div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-fw fa-envelope-open fa-2x text-gray-300"></i>
+                            <a href="<?= base_url('admin/in_mail') ?>"> <i class="fas fa-fw fa-envelope-open fa-2x text-gray-300"></i></a>
                         </div>
                     </div>
                 </div>

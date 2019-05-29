@@ -16,9 +16,9 @@ class Admin extends CI_Controller
             $this->session->set_flashdata(
                 'message',
                 '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>You must be an administrator to view the admin page!!</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button></div>'
+                <strong>You must be an administrator to view the admin page!!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span></button></div>'
             );
             redirect(base_url('user'), 'refresh');
         }
@@ -29,6 +29,8 @@ class Admin extends CI_Controller
         $data['title'] = 'DASHBOARD - MIS';
         $data['heading'] = 'Dashboard';
         $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
+        $data['count'] = $this->management->count_suratm()->num_rows();
+        // print_r($data['count']);
         $this->load->view('templates/home_header', $data);
         $this->load->view('admin/home');
         $this->load->view('templates/home_footer', $data);
