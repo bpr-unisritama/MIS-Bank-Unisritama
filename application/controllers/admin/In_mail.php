@@ -71,32 +71,7 @@ class In_mail extends CI_Controller
             $this->load->view('admin/add_suratm', $data);
             $this->load->view('templates/home_footer', $data);
         } else {
-            // $this->mail->_reg();
-            $data = [
-                'tgl_terima' => date('Y-m-d', strtotime($this->input->post('tgl_terima', true))),
-                'tgl_surat' => date('Y-m-d', strtotime($this->input->post('tgl_surat', true))),
-                'asal' => htmlspecialchars($this->input->post('asal', true)),
-                'tujuan' => htmlspecialchars($this->input->post('tujuan', true)),
-                'no_surat' => htmlspecialchars($this->input->post('no_surat', true)),
-                'perihal' => htmlspecialchars($this->input->post('perihal', true)),
-                'lampiran' => htmlspecialchars($this->input->post('lampiran', true)),
-                'kategori' => htmlspecialchars($this->input->post('kategori', true)),
-                'jenis' => htmlspecialchars($this->input->post('jenis', true)),
-                'lokasi' => htmlspecialchars($this->input->post('lokasi', true)),
-                'ket' => htmlspecialchars($this->input->post('ket', true)),
-                'foto' => 'default.jpg',
-                'esurat' => 'test',
-                'date_created' => date('Y-m-d')
-            ];
-
-            $this->db->insert('surat_masuk', $data);
-            $this->session->set_flashdata(
-                'message',
-                '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Registrasi Surat Masuk Berhasil!</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span></button></div>'
-            );
+            $this->mail->_reg();
             redirect('admin/in_mail', 'refresh');
         }
     }
@@ -117,5 +92,12 @@ class In_mail extends CI_Controller
         $this->load->view('templates/home_header', $data);
         $this->load->view('admin/detail_suratm', $data);
         $this->load->view('templates/home_footer', $data);
+    }
+
+    public function edit($id_suratm)
+    {
+        $data['title'] = 'DETAIL SURAT';
+        $data['heading'] = 'Detail Surat Masuk';
+        $data['user'] = $this->db->get_where('user', ['name' => $this->session->userdata('name')])->row_array();
     }
 }

@@ -18,7 +18,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive-md">
-                <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                     <thead class="table table-dark">
                         <tr>
                             <th>No.</th>
@@ -45,16 +45,16 @@
                         <?php $no = 1;
                         foreach ($data as $row) : ?>
                             <tr>
-                                <th><?= $no++; ?>
+                                <th width="1px"><?= $no++; ?></th>
                                 <th><?= htmlspecialchars($row->tgl_terima); ?></th>
                                 <th><?= htmlspecialchars($row->tgl_surat); ?></th>
                                 <th><?= htmlspecialchars($row->asal); ?></th>
                                 <th><?= htmlspecialchars($row->tujuan); ?></th>
                                 <th><?= htmlspecialchars($row->perihal); ?></th>
                                 <th>
-                                    <a href="#" class="btn btn-sm btn-danger btn-user float-center" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal">Hapus</a>
-                                    <a href="#" class="btn btn-sm btn-primary btn-user  float-center" data-target="#<?php echo $row->id_suratm; ?>" data-toggle="modal">Edit</a>
-                                    <a href="<?= base_url('admin/detail/' . $row->id_suratm); ?>" class="btn btn-sm btn-success btn-user float-center">Detail</a>
+                                    <a href="#" class="btn btn-sm btn-danger btn-user" data-target="#hapus<?php echo $row->id_suratm; ?>" data-toggle="modal"><i class="fas fa-trash"></i></a>
+                                    <a href="#" class="btn btn-sm btn-primary btn-user " data-target="#<?php echo $row->id_suratm; ?>" data-toggle="tooltip" data-placement="top" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                    <a href="<?= base_url('admin/detail/' . $row->id_suratm); ?>" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fas fa-share-square"></i></a>
                                 </th>
                             </tr>
                             <div id="hapus<?= $row->id_suratm; ?>" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
