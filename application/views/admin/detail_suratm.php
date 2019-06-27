@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?= base_url('assets/css/image-show.css'); ?>">
+<script src="<?= base_url('assets/js/image-show.js'); ?>"></script>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -22,64 +24,87 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="col-12">
-                        <?php foreach ($data as $row) : ?>
-                            <form class="user">
-                                <div class="form-group col-9">
-                                    <label>Tanggal Terima</label>
-                                    <div class="input-group date">
-                                        <input disabled type="text" class="form-control date-picker" name="tgl_terima" id="tgl_terima" placeholder="Enter Tanggal Terima" value="<?= $row->tgl_terima; ?>" data-date-format="dd/mm/yyyy">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
+                            <?php foreach ($data as $row) : ?>
+                                <form class="user">
+                                    <div class="form-group col-12">
+                                        <label>Tanggal Terima</label>
+                                        <div class="input-group date">
+                                            <input disabled type="text" class="form-control date-picker" name="tgl_terima" id="tgl_terima" placeholder="Enter Tanggal Terima" value="<?= $row->tgl_terima; ?>" data-date-format="dd/mm/yyyy">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Tanggal Surat</label>
+                                        <div class="input-group date">
+                                            <input disabled type="text" class="form-control date-picker" name="tgl_surat" id="tgl_surat" placeholder="Enter Tangal Surat" value="<?= $row->tgl_surat; ?>" data-date-format="dd/mm/yyyy">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Asal</label>
+                                        <input disabled type="text" class="form-control" name="asal" id="asal" placeholder="Enter Asal Pengirim" value="<?= $row->asal; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Tujuan</label>
+                                        <input disabled type="text" class="form-control" name="tujuan" id="tujuan" placeholder="Enter Tujuan" value="<?= $row->tujuan; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>No. Surat</label>
+                                        <input disabled type="text" class="form-control" name="no_surat" id="no_surat" placeholder="Enter Folder" value="<?= $row->no_surat; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Perihal</label>
+                                        <input disabled type="text" class="form-control" name="perihal" id="perihal" placeholder="Enter Perihal.." value="<?= $row->perihal; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Jumlah Lampiran</label>
+                                        <input disabled type="text" class="form-control" name="lampiran" id="lampiran" placeholder="Enter Jumlah Lampiran.." value="<?= set_value('lampiran'); ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Kategori Surat</label>
+                                        <input disabled type="text" class="form-control" value="<?= $row->kategori; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Sifat Surat</label>
+                                        <input disabled type="text" class="form-control" value="<?= $row->type; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Lokasi Penyimpanan</label>
+                                        <input disabled type="text" class="form-control" value="<?= $row->lokasi; ?>">
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label>Keterangan</label>
+                                        <input disabled type="text" class="form-control" value="<?= $row->ket; ?>">
+                                    </div>
+                                    <div class="form-group col-12 text-center">
+                                        <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="<?= $row->perihal; ?>" data-image="<?php echo base_url("assets/img/" . $row->foto); ?>" data-target="#image-show">
+                                            <img src="<?php echo base_url("assets/img/" . $row->foto); ?>" class="rounded" alt="<?= $row->perihal; ?>">
+                                        </a>
+                                    </div>
+                                    <hr>
+                                </form>
+                                <div class="modal fade" id="image-show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="image-show-title"></h4>
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <img id="image-show-image" class="img-responsive col-md-12" src="">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group col-9">
-                                    <label>Tanggal Surat</label>
-                                    <div class="input-group date">
-                                        <input disabled type="text" class="form-control date-picker" name="tgl_surat" id="tgl_surat" placeholder="Enter Tangal Surat" value="<?= $row->tgl_surat; ?>" data-date-format="dd/mm/yyyy">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text fas fa-calendar-alt" id="tgl"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Asal</label>
-                                    <input disabled type="text" class="form-control" name="asal" id="asal" placeholder="Enter Asal Pengirim" value="<?= $row->asal; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Tujuan</label>
-                                    <input disabled type="text" class="form-control" name="tujuan" id="tujuan" placeholder="Enter Tujuan" value="<?= $row->tujuan; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>No. Surat</label>
-                                    <input disabled type="text" class="form-control" name="no_surat" id="no_surat" placeholder="Enter Folder" value="<?= $row->no_surat; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Perihal</label>
-                                    <input disabled type="text" class="form-control" name="perihal" id="perihal" placeholder="Enter Perihal.." value="<?= $row->perihal; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Jumlah Lampiran</label>
-                                    <input disabled type="text" class="form-control" name="lampiran" id="lampiran" placeholder="Enter Jumlah Lampiran.." value="<?= set_value('lampiran'); ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Kategori Surat</label>
-                                    <input disabled type="text" class="form-control" value="<?= $row->kategori; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Sifat Surat</label>
-                                    <input disabled type="text" class="form-control" value="<?= $row->type; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Lokasi Penyimpanan</label>
-                                    <input disabled type="text" class="form-control" value="<?= $row->lokasi; ?>">
-                                </div>
-                                <div class="form-group col-9">
-                                    <label>Keterangan</label>
-                                    <input disabled type="text" class="form-control" value="<?= $row->ket; ?>">
-                                </div>
-                                <hr>
-                            </form>
                             <?php endforeach; ?>
                         </div>
                     </div>

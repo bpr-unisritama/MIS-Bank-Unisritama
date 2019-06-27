@@ -22,9 +22,8 @@
                     <thead class="table table-dark">
                         <tr>
                             <th>No.</th>
-                            <th>Tgl Terima</th>
                             <th>Tgl Surat</th>
-                            <th>Asal Surat</th>
+                            <th>Pengirim</th>
                             <th>Tujuan</th>
                             <th>Perihal</th>
                             <th>Action</th>
@@ -33,9 +32,8 @@
                     <tfoot class="table table-dark">
                         <tr>
                             <th>No.</th>
-                            <th>Tgl Terima</th>
                             <th>Tgl Surat</th>
-                            <th>Asal Surat</th>
+                            <th>Pengirim</th>
                             <th>Tujuan</th>
                             <th>Perihal</th>
                             <th>Action</th>
@@ -46,7 +44,6 @@
                         foreach ($data as $row) : ?>
                             <tr>
                                 <th width="1px"><?= $no++; ?></th>
-                                <th><?= htmlspecialchars($row->tgl_terima); ?></th>
                                 <th><?= htmlspecialchars($row->tgl_surat); ?></th>
                                 <th><?= htmlspecialchars($row->asal); ?></th>
                                 <th><?= htmlspecialchars($row->tujuan); ?></th>
