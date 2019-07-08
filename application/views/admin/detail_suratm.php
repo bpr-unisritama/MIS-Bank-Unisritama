@@ -87,30 +87,43 @@
                                     </div>
                                     <hr>
                                 </form>
-                                <div class="modal fade" id="image-show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg">
+                                <div id="image-show" class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="image-show-title"></h4>
-                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                                                </button>
+                                                <h5 class="modal-title mt-0"><?= $row->perihal; ?></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <img id="image-show-image" class="img-responsive col-md-12" src="">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
-                                                </button>
+                                                <div class="modal-footer">
+                                                    <!-- <button type="button" class="btn btn-primary">Yes</button> -->
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="tooltip" data-placement="top" title="Kembali">Kembali</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- /.container-fluid -->
+    <!-- /.container-fluid -->
+    <script type="text/javascript" src="http://malsup.github.com/jquery.media.js"></script>
+    <script>
+        $(function() {
+            $(document).on('click', '.thumbnail', function(e) {
+                e.preventDefault();
+                $("#image-show").modal('show');
+                $.post('hasil.php', {
+                        id: $(this).attr('data-id')
+                    },
+                    function(html) {
+                        $(".modal-body").html(html);
+                    }
+                );
+            });
+        });
+    </script>
